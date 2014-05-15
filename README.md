@@ -1,4 +1,4 @@
 gardr-burt-ext
 ===============
 
-Burt plugin for Garðr - ext side
+[Burt](http://burtcorp.com/) plugin for Garðr - ext side

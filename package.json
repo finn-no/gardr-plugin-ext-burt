@@ -7,10 +7,12 @@
     "test": "./node_modules/karma/bin/karma start --single-run",
     "watch": "./node_modules/karma/bin/karma start"
   },
-  "repository": "",
+  "repository": "https://github.com/finn-no/gardr-burt-ext.git",
+  "bugs": "https://github.com/finn-no/gardr-burt-ext/issues",
   "keywords": [
     "Garðr",
     "gardr",
+    "gardr-plugin",
     "burt"
   ],
   "author": "FINN.no AS",
