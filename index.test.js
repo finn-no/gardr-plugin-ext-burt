@@ -47,27 +47,19 @@ describe('burt-ext', function () {
 
     it('should throw if missing burtScript options argument', function () {
         expect(function () {
-            burtExt(options.without('burtScript'));
+            burtExt(null, options.without('burtScript'));
         }).to.throw();
-    });
-
-    it('should take an object litteral an return a function', function () {
-        var burtPlugin = burtExt(options);
-        expect(burtPlugin).to.be.a('function');
     });
 
     describe('plugin', function () {
         it('should define window.burtApi', function () {
-            var burtPlugin = burtExt(options);
-            burtPlugin(pluginApi);
+            burtExt(pluginApi, options);
             expect(global.burtApi).to.be.an('array');
         });
 
         it('should inject a script with burtScript as src', function () {
-            var burtPlugin = burtExt(options);
             var spy = sinon.spy(Node.prototype, 'appendChild');
-
-            burtPlugin(pluginApi);
+            burtExt(pluginApi, options);
             expect(spy).to.have.been.calledWithMatch(function (script) {
                 return script.src === options.burtScript;
             });
@@ -75,8 +67,7 @@ describe('burt-ext', function () {
         });
 
         it('should call burtApi.trackById if burtScript loads before container is created', function () {
-            var burtPlugin = burtExt(options);
-            burtPlugin(pluginApi);
+            burtExt(pluginApi, options);
 
             mockBurtScript();
             pluginApi.trigger('params:parsed', {id: 'test1'});
@@ -86,8 +77,7 @@ describe('burt-ext', function () {
         });
 
         it('should call burtApi.trackById if burtScript loads after container is created', function () {
-            var burtPlugin = burtExt(options);
-            burtPlugin(pluginApi);
+            burtExt(pluginApi, options);
 
             pluginApi.trigger('params:parsed', {id: 'test2'});
             pluginApi.trigger('element:containercreated', createContainer());
@@ -97,8 +87,7 @@ describe('burt-ext', function () {
         });
 
         it('should set data-name and data-xdi-id on container', function () {
-            var burtPlugin = burtExt(options);
-            burtPlugin(pluginApi);
+            burtExt(pluginApi, options);
             var params = {id: 'test3'};
             pluginApi.trigger('params:parsed', params);
 

@@ -3,14 +3,6 @@ var validateOpts = require('define-options')({
     burtScript       : 'string    - url to the burt xdi-script'
 });
 
-function factory (options) {
-    validateOpts(options);
-
-    return function (gardr) {
-        loadBurt(options, gardr);
-    };
-}
-
 function saveParams (params) {
     gardrParams = params;
 }
@@ -25,14 +17,14 @@ function trackGardrContainer (el) {
     }
 }
 
-function loadBurt (options, gardr) {
+function burtExt (gardrPluginApi, options) {
     win.burtApi = win.burtApi || [];
-    gardr.on('params:parsed', saveParams);
-    gardr.on('element:containercreated', trackGardrContainer);
+    gardrPluginApi.on('params:parsed', saveParams);
+    gardrPluginApi.on('element:containercreated', trackGardrContainer);
 
     var s = d.createElement('script');
     s.src = options.burtScript;
     d.getElementsByTagName('script')[0].appendChild(s);
 }
 
-module.exports = factory;
+module.exports = burtExt;
