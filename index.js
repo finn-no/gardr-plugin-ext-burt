@@ -17,7 +17,7 @@ function trackGardrContainer (options, el) {
             options.burtConnect(burtUnit, el);
         }
     } else {
-        win.burtApi.push(trackGardrContainer.bind(null, el));
+        win.burtApi.push(trackGardrContainer.bind(null, options, el));
     }
 }
 

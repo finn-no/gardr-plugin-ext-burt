@@ -74,20 +74,23 @@ describe('burt-ext', function () {
             burtExt(pluginApi, options);
 
             mockBurtScript();
+
             var container = createContainer();
             pluginApi.trigger('params:parsed', {id: 'test1'});
             pluginApi.trigger('element:containercreated', container);
             expect(burtApi.trackByNode).to.have.been.calledOnce;
             expect(burtApi.trackByNode).to.have.been.calledWith(container);
-            //expect(burtApi.trackByNode).to.have.been.calledWith(container, {name : 'test1', xdiId : 'text1'});
         });
 
         it('should call burtApi.trackByNode if burtScript loads after container is created', function () {
             burtExt(pluginApi, options);
-            mockBurtScript();
+
             var container = createContainer();
             pluginApi.trigger('params:parsed', {id: 'test2'});
             pluginApi.trigger('element:containercreated', container);
+
+            mockBurtScript();
+
             expect(burtApi.trackByNode).to.have.been.calledOnce;
             expect(burtApi.trackByNode).to.have.been.calledWith(container);
         });
