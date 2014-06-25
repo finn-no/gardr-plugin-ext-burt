@@ -1,6 +1,6 @@
 {
   "name": "gardr-plugin-ext-burt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Garðr plugin for Burt",
   "main": "index.js",
   "scripts": {
