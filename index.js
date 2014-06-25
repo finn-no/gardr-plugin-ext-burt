@@ -1,5 +1,4 @@
 var win = global, d = document, gardrParams;
-var eventListener = require('eventlistener');
 var validateOpts = require('define-options')({
     burtScript       : 'string    - Required URL to the burt xdi-script',
     burtConnect      : '?|function  - Optional function to connect campaignId to a burtUnit. Arguments (burtUnit, containerEl).'
