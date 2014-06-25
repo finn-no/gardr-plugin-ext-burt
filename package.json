@@ -1,5 +1,5 @@
 {
-  "name": "gardr-burt-ext",
+  "name": "gardr-plugin-ext-burt",
   "version": "0.0.0",
   "description": "A Garðr plugin for Burt",
   "main": "index.js",
@@ -7,8 +7,8 @@
     "test": "./node_modules/karma/bin/karma start --single-run",
     "watch": "./node_modules/karma/bin/karma start"
   },
-  "repository": "https://github.com/finn-no/gardr-burt-ext.git",
-  "bugs": "https://github.com/finn-no/gardr-burt-ext/issues",
+  "repository": "https://github.com/finn-no/gardr-plugin-ext-burt.git",
+  "bugs": "https://github.com/finn-no/gardr-plugin-ext-burt/issues",
   "keywords": [
     "Garðr",
     "gardr",
