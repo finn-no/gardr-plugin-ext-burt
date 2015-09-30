@@ -12,7 +12,7 @@ function trackGardrContainer (options, el) {
     if (win.burtApi.trackByNode) {
         el.setAttribute('data-name', gardrParams.id);
         el.setAttribute('data-xdi-id', gardrParams.id);
-        burtUnit = win.burtApi.trackByNode(el, {name : gardrParams.id, xdiId : gardrParams.id});
+        var burtUnit = win.burtApi.trackByNode(el, {name : gardrParams.id, xdiId : gardrParams.id});
         if (options.burtConnect) {
             options.burtConnect(burtUnit, el);
         }
